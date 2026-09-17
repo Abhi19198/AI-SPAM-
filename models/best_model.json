@@ -1,0 +1,29 @@
+{
+  "best_model": "LinearSVM",
+  "training_summary": {
+    "rows": 50,
+    "columns": [
+      "label",
+      "message"
+    ],
+    "missing_values": {
+      "label": 0,
+      "message": 0
+    },
+    "duplicate_rows": 0,
+    "label_distribution": {
+      "ham": 30,
+      "spam": 20
+    }
+  },
+  "cross_validation": {
+    "MultinomialNB": {
+      "cv_f1_mean": 0.8786813186813186,
+      "cv_f1_std": 0.07449739007430464
+    },
+    "LinearSVM": {
+      "cv_f1_mean": 0.8795426795426795,
+      "cv_f1_std": 0.07472533540267261
+    }
+  }
+}

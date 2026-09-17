@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI-Powered Spam Email Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">AI</div>
+          <div>
+            <div class="brand-name">SpamGuard</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#dashboard">Dashboard</a>
+          <a href="#model-info">Model Information</a>
+          <a href="#about">About</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">AI-Powered Spam Email Detection</span>
+            <h1>Protect inboxes with explainable AI screening.</h1>
+            <p>
+              Quickly detect suspicious email content using a trained text-classification model,
+              with a clear estimate of confidence and model explanations.
+            </p>
+            <div class="hero-actions">
+              <button class="primary" id="analyzeBtn">Analyze Email</button>
+              <button class="secondary" id="clearBtn">Clear</button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="visual-card">
+              <div class="signal-row">
+                <span class="dot green"></span>
+                <span>Secure filtering</span>
+              </div>
+              <div class="signal-row">
+                <span class="dot yellow"></span>
+                <span>Confidence estimate</span>
+              </div>
+              <div class="signal-row">
+                <span class="dot blue"></span>
+                <span>Model explanation</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="dashboard" class="dashboard-grid">
+          <div class="panel analysis-panel">
+            <div class="panel-header">
+              <h2>Email Analysis</h2>
+              <span id="charCount">0 / 2000</span>
+            </div>
+            <textarea id="emailInput" maxlength="2000" placeholder="Paste or type an email message here..."></textarea>
+            <div class="example-row">
+              <button class="chip" data-example="Urgent! You have been selected for a cash reward. Click now to claim your prize before midnight.">Spam Example</button>
+              <button class="chip" data-example="Hi team, the project review is scheduled for tomorrow at 10 AM and we will finalize the presentation.">Ham Example</button>
+            </div>
+            <div class="analysis-actions">
+              <button class="primary" id="submitBtn">Analyze</button>
+              <button class="secondary" id="resetBtn">Clear</button>
+            </div>
+          </div>
+
+          <div class="panel prediction-panel">
+            <div class="panel-header">
+              <h2>Prediction</h2>
+            </div>
+            <div id="resultCard" class="result-card neutral">
+              <div class="result-topline">
+                <span class="status-badge">Awaiting Input</span>
+              </div>
+              <div class="result-value" id="predictionValue">—</div>
+              <div class="result-meta">
+                <div>
+                  <label>Confidence</label>
+                  <div id="confidenceValue">0%</div>
+                </div>
+                <div>
+                  <label>Model</label>
+                  <div id="modelValue">—</div>
+                </div>
+                <div>
+                  <label>Processing</label>
+                  <div id="processingValue">—</div>
+                </div>
+              </div>
+            </div>
+            <div class="explain-box">
+              <h3>Model Signal</h3>
+              <ul id="explanationList">
+                <li>Explanation appears after analysis.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <div class="mini-card">
+            <span>Total Predictions</span>
+            <strong id="totalPredictions">0</strong>
+          </div>
+          <div class="mini-card">
+            <span>Spam Count</span>
+            <strong id="spamCount">0</strong>
+          </div>
+          <div class="mini-card">
+            <span>Ham Count</span>
+            <strong id="hamCount">0</strong>
+          </div>
+          <div class="mini-card">
+            <span>Model</span>
+            <strong id="modelMetric">NB + SVM</strong>
+          </div>
+        </section>
+
+        <section id="model-info" class="info-section">
+          <div class="panel">
+            <h3>TF-IDF</h3>
+            <p>
+              TF-IDF converts words into numeric values that reflect frequency and importance. Rare but relevant terms can become strong signals for spam detection.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Naive Bayes</h3>
+            <p>
+              Multinomial Naive Bayes is a fast probabilistic classifier that works well for text and is often effective on spam classification tasks.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>SVM Comparison</h3>
+            <p>
+              Linear SVM often performs competitively on high-dimensional sparse text data, making it a useful baseline for comparison.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Limitations</h3>
+            <p>
+              Model explanations are signals, not proof of intent. They should support review, not replace human judgment.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer id="about" class="footer">
+        <p>AI-Powered Spam Email Classifier</p>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
