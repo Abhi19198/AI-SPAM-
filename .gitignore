@@ -1,13 +1,3 @@
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.env
-.venv/
 venv/
-.pytest_cache/
-.DS_Store
-*.log
-instance/database.db
-models/*.pkl
-models/*.joblib
+.env
+*.pyc
